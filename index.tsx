@@ -1,4 +1,4 @@
-import React, {Component, SyntheticEvent} from 'react';
+import React, {Component, PropsWithChildren, SyntheticEvent} from 'react';
 import {
     findNodeHandle,
     Image,
@@ -107,7 +107,7 @@ export interface Rect {
     bottom?: number;
 }
 
-export interface NaverMapViewProps {
+export interface NaverMapViewProps extends PropsWithChildren {
     style?: StyleProp<ViewStyle>;
     center?: Coord & { zoom?: number; tilt?: number; bearing?: number };
     tilt?: number;
@@ -151,7 +151,6 @@ export interface NaverMapViewProps {
     stopGesturesEnabled?: boolean;
     liteModeEnabled?: boolean;
     useTextureView?: boolean;
-    children?: Element;
 }
 
 export default class NaverMapView extends Component<NaverMapViewProps, {}> {
