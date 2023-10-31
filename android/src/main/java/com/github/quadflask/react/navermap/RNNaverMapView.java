@@ -82,6 +82,14 @@ public class RNNaverMapView extends MapView implements OnMapReadyCallback, Naver
   }
 
   @Override
+  public void setCenter(LatLng latLng, CameraAnimation animation) {
+    getMapAsync(e -> {
+      CameraUpdate cameraUpdate = CameraUpdate.scrollTo(latLng).animate(animation);
+      naverMap.moveCamera(cameraUpdate);
+    });
+  }
+
+  @Override
   public void setCenter(LatLng latLng, Double zoom, Double tilt, Double bearing) {
     getMapAsync(e -> {
       CameraPosition cam = naverMap.getCameraPosition();

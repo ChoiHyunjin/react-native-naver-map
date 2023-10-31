@@ -3,6 +3,7 @@ package com.github.quadflask.react.navermap;
 import android.view.View;
 import com.naver.maps.geometry.LatLng;
 import com.naver.maps.geometry.LatLngBounds;
+import com.naver.maps.map.CameraAnimation;
 import com.naver.maps.map.NaverMap;
 
 public interface RNNaverMapViewProps {
@@ -16,6 +17,8 @@ public interface RNNaverMapViewProps {
   void onStop();
 
   void setCenter(LatLng latLng);
+
+  void setCenter(LatLng latLng, CameraAnimation animation);
 
   void setCenter(LatLng latLng, Double zoom, Double tilt, Double bearing);
 
