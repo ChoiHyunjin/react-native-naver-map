@@ -57,6 +57,13 @@ export interface PointType {
     }
 }
 
+export enum NMFCameraAnimation {
+    None,
+    Linear,
+    Easing,
+    Fly,
+}
+
 export interface LatLngBounds {
     bottomLeftCoord: Array<number>;
     bottomRightCoord: Array<number>;
@@ -162,8 +169,8 @@ export default class NaverMapView extends Component<NaverMapViewProps, {}> {
         this.nodeHandle = findNodeHandle(ref);
     };
 
-    animateToCoordinate = (coord: Coord) => {
-        this.dispatchViewManagerCommand('animateToCoordinate', [coord]);
+    animateToCoordinate = (coord: Coord, animation: NMFCameraAnimation = NMFCameraAnimation.Easing) => {
+        this.dispatchViewManagerCommand('animateToCoordinate', [coord, animation]);
     }
 
     animateToTwoCoordinates = (c1: Coord, c2: Coord) => {
